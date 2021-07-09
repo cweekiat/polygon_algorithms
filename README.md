@@ -19,9 +19,9 @@ This repository contains polygon algorithms of the following:
 
 **How to compile:**
 Run in command line (tested in linux)
-'''g++ ptinpoly.cpp geom.cpp -o ptinpoly -I/usr/include/python3.8 -lpython3.8'''  (if using matplotlib)
+`g++ ptinpoly.cpp geom.cpp -o ptinpoly -I/usr/include/python3.8 -lpython3.8`  (if using matplotlib)
 or 
-'''g++ ptinpoly.cpp geom.cpp -o ptinpoly'''
+`g++ ptinpoly.cpp geom.cpp -o ptinpoly`
 
 **How to run additional test cases:** (Suggested)
 1. Using MATLAB, use [drawpolygon()](https://www.mathworks.com/help/images/ref/drawpolygon.html) function to draw any desired polygon 
@@ -67,9 +67,9 @@ As the horizontal ray is in the direction of the positive x-axis, the position m
 
 **How to compile:**
 Run in command line (tested in linux)
-'''g++ lineinpoly.cpp geom.cpp -o lineinpoly -I/usr/include/python3.8 -lpython3.8''' (if using matplotlib)
+`g++ lineinpoly.cpp geom.cpp -o lineinpoly -I/usr/include/python3.8 -lpython3.8` (if using matplotlib)
 or 
-'''g++ lineinpoly.cpp geom.cpp -o lineinpoly'''
+`g++ lineinpoly.cpp geom.cpp -o lineinpoly`
 
 **How to run additional test cases:** (Suggested)
 1. Using MATLAB, use [drawpolygon()](https://www.mathworks.com/help/images/ref/drawpolygon.html) function to draw any desired polygon 
