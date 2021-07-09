@@ -44,7 +44,7 @@ int between(point2D a, point2D b, point2D c) {
 
 // Exclusive or.
 int Xor(int x, int y) {
-    return !x ^ !y;
+    return x ^ y;
 }
 
 // Return 1 if s1 and s2 intersect at a proper point (point that’s interior to both).
