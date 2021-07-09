@@ -95,10 +95,13 @@ or
 
 The line-in-polygon utilises a naive algorithm to check if the line (formed by two points) is not fully contained within a concave polygon. The algorithm iteratively checks for intersection between the line segment and every edge of the polygon. 
 
-Step 1: Check if two given points are inside the polygon (using the point-in-polygon algorithm above). 
-Step 2: Construct line segment from two given points.
-Step 3: Iterate through every line segment and check for intersection. 
-Step 4: If intersection exists, line is not fully contained within the concave polygon. 
+**Step 1:** Check if two given points are inside the polygon (using the point-in-polygon algorithm above). 
+
+**Step 2:** Construct line segment from two given points.
+
+**Step 3:** Iterate through every line segment and check for intersection. 
+
+**Step 4:** If intersection exists, line is not fully contained within the concave polygon. 
 
 
 
