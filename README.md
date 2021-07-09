@@ -19,7 +19,7 @@ This repository contains polygon algorithms of the following:
 
 **How to compile:**
 Run in command line (tested in linux)
-'''g++ ptinpoly.cpp geom.cpp -o ptinpoly -I/usr/include/python3.8 -lpython3.8 (if using matplotlib)'''
+'''g++ ptinpoly.cpp geom.cpp -o ptinpoly -I/usr/include/python3.8 -lpython3.8'''  (if using matplotlib)
 or 
 '''g++ ptinpoly.cpp geom.cpp -o ptinpoly'''
 
@@ -30,7 +30,7 @@ or
 4. Re-compile
 
 **How it works**
-The point-in-polygon code utilises a Ray-Casting Algorithm. [Computational Geometry in C 2nd edition by Joseph O’Rourke, page 239.](https://github.com/sarcilav/analisis-numerico/blob/master/doc/Computational%20Geometry%20In%20C%202nd%20ed.%20-%20J.%20O%27Rourke%20(1997)%20WW.pdf)
+The point-in-polygon code utilises a Ray-Casting Algorithm to check if a given point is inside a simple convex/concave polygon. [Computational Geometry in C 2nd edition by Joseph O’Rourke, page 239.](https://github.com/sarcilav/analisis-numerico/blob/master/doc/Computational%20Geometry%20In%20C%202nd%20ed.%20-%20J.%20O%27Rourke%20(1997)%20WW.pdf)
 
 **Step 1:** Iterate through every vertex of polygon. 
 
@@ -54,7 +54,36 @@ As the horizontal ray is in the direction of the positive x-axis, the position m
 
 **Step 5:** For every intersection in step 4, the inside_flag is switched. A better way to understand is: Odd number of intersection = inside, Even number of intersection = outside.
 
+## Line in Polygon 
 
+**Requirements**
+[Matplotlib](https://github.com/lava/matplotlib-cpp) for C++ (recommended)
+
+**Files to be saved in the same folder:**
+* lineinpoly.cpp (main script)
+* geom.h (header file for helper functions)
+* geom.cpp (cpp file for helper functions)
+* matplotlibcpp.h (for plotting)
+
+**How to compile:**
+Run in command line (tested in linux)
+'''g++ lineinpoly.cpp geom.cpp -o lineinpoly -I/usr/include/python3.8 -lpython3.8''' (if using matplotlib)
+or 
+'''g++ lineinpoly.cpp geom.cpp -o lineinpoly'''
+
+**How to run additional test cases:** (Suggested)
+1. Using MATLAB, use [drawpolygon()](https://www.mathworks.com/help/images/ref/drawpolygon.html) function to draw any desired polygon 
+2. Retrieve coordinates of the vertices from MATLAB workspace.
+3. Copy and Paste into lineinpoly.cpp (need to add commas after each coordinate)
+4. Re-compile
+
+**How it works**
+The line-in-polygon utilises a naive algorithm to check if the line (formed by two points) is not fully contained within a concave polygon. The algorithm iteratively checks for intersection between the line segment and every edge of the polygon. 
+
+Step 1: Check if two given points are inside the polygon (using the point-in-polygon algorithm above). 
+Step 2: Construct line segment from two given points.
+Step 3: Iterate through every line segment and check for intersection. 
+Step 4: If intersection exists, line is not fully contained within the concave polygon. 
 
 
 
