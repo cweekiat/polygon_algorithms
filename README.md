@@ -5,6 +5,7 @@ This repository contains polygon algorithms of the following:
 
 1. Point in Polygon
 2. Line in Polygon
+3. Visibility Polygon
 
 ## Point in Polygon 
 
