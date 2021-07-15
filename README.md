@@ -103,7 +103,50 @@ The line-in-polygon utilises a naive algorithm to check if the line (formed by t
 
 **Step 4:** If intersection exists, line is not fully contained within the concave polygon. 
 
+## Visibility Polygon
 
+**Requirements:**
+
+[Matplotlib](https://github.com/lava/matplotlib-cpp) for C++ (recommended)
+
+**Files to be saved in the same folder:**
+* visibility.cpp (main script)
+* geom.h (header file for helper functions)
+* geom.cpp (cpp file for helper functions)
+* matplotlibcpp.h (for plotting)
+
+**How to compile:**
+
+Run in command line (tested in linux)
+
+`g++ visibility.cpp geom.cpp -o visibility -I/usr/include/python3.8 -lpython3.8` (if using matplotlib)
+
+or 
+
+`g++ visibility.cpp geom.cpp -o visibility`
+
+**How to run additional test cases:** (Suggested)
+
+1. Using MATLAB, use [drawpolygon()](https://www.mathworks.com/help/images/ref/drawpolygon.html) function to draw any desired polygon 
+2. Retrieve coordinates of the vertices from MATLAB workspace.
+3. Copy and Paste into lineinpoly.cpp (need to add commas after each coordinate)
+4. Re-compile
+
+**How it works**
+
+The visibility algorithm is created by [Zackery Leman & Ivy Xing](https://github.com/ivyxing/PolygonVisibility/tree/master/PolygonVisibility). The algorithm utilises a naive ray casting to every vertex method, which has a time complexity of O(n^{2}) as described in [Wikipedia](https://en.wikipedia.org/wiki/Visibility_polygon). The original algorithm can display the visibility polygon, however, the algorithm is unable to return the vertices of the visibility polygon. My work mainly retrieves the visibility vertices and sort them in an counter-clockwise order, along with other minor modifications.
+
+To compute the visibility area, the algorithm performs five main steps:
+
+**Step 1:** Iterate through every vertices of the original. If the vertex is visible from the point q, it is added to the vector of visible vertices.
+
+**Step 2:** Compute the gradient of the line connecting each visible vertex to point z. 
+
+**Step 3:** Using the gradient, construct a ray from each visible vertex and count the number of intersection of the original polygon. 
+
+**Step 4:** If there is odd number of intersection, compute the coordinates of the closest point of intersection from point z. (new vertex of the visibility polygon)  
+
+**Step 5:** Using the original concave polygon as reference, sort the visibility vertices. 
 
 
 
