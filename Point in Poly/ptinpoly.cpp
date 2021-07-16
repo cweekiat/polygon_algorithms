@@ -1,5 +1,5 @@
 #define _USE_MATH_DEFINES
-#include "matplotlibcpp.h"
+// #include "matplotlibcpp.h" //uncomment if using matplotlib
 #include <cmath>
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +9,7 @@
 #include <sys/time.h>
 #include "geom.h"
 using namespace std;
-namespace plt = matplotlibcpp; //comment out if no MPL
+// namespace plt = matplotlibcpp; //uncomment if using matplotlib
 
 vector<point2D> polygonVertices;
 
@@ -84,7 +84,7 @@ int main() {
                             0.234693877551020,
                             0.482507288629738,
                             0.3804664723032071};
-    plt::fill(vertex_x, vertex_y,{}); //comment out if no MPL
+    // plt::fill(vertex_x, vertex_y,{}); //uncomment if using matplotlib
 
     vector<point2D> polygonVertices;
     for (int i = 0; i < vertex_x.size(); i++){
@@ -104,11 +104,11 @@ int main() {
         vector<double> b = {y[i]};
         point2D testpoint = {x[i], y[i]}; 
         if (insidePolygon(polygonVertices, testpoint)){
-            // cout << "inside" << endl; 
-            plt::plot(a,b, "go"); //comment out if no MPL
+            cout << "inside" << endl; 
+            // plt::plot(a,b, "go"); //uncomment if using matplotlib
         }else{
-            // cout << "outside" << endl;
-            plt::plot(a,b, "ro"); //comment out if no MPL
+            cout << "outside" << endl;
+            // plt::plot(a,b, "ro"); //uncomment if using matplotlib
         }
     } 
 
@@ -123,7 +123,7 @@ int main() {
          << time_taken << setprecision(6);
     cout << " sec" << endl;
 
-    plt::show(); //comment out if no MPL
+    // plt::show(); //uncomment if using matplotlib
     return 0;
 }
 
