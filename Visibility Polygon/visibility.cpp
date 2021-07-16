@@ -1,5 +1,5 @@
 #define _USE_MATH_DEFINES
-#include "matplotlibcpp.h"
+// #include "matplotlibcpp.h" // uncomment if using matplotlib
 #include <cmath>
 #include <stdio.h>
 #include <stdlib.h>
@@ -10,10 +10,7 @@
 #include <sys/time.h>
 #include "geom.h"
 using namespace std;
-namespace plt = matplotlibcpp; //comment out if no MPL
-
-
-using namespace std;
+// namespace plt = matplotlibcpp; // uncomment if using matplotlib
 
 /**** Global variables ****/
 point2D home; // The return home point
@@ -248,7 +245,7 @@ int main(int argc, char** argv) {
 0.167638483965015,
 0.258017492711370,
 0.879008746355685};
-    plt::fill(vertex_x, vertex_y,{}); //comment out if no matplotlib
+    // plt::fill(vertex_x, vertex_y,{}); // uncomment if using matplotlib
 
     // START TIMER
     struct timeval start, end;
@@ -270,16 +267,20 @@ int main(int argc, char** argv) {
         for (int j = 0; j < order.size(); j++){         // Convert to format readable by Matplotlib
             vis_x.push_back(order[j].x);
             vis_y.push_back(order[j].y);
+            cout << "{" << order[j].x << ", " << order[j].y << "}, " << endl;
         }
-        plt::fill(vis_x, vis_y, {});                    // Plot Visibility Polygon
-        plt::plot({home.x, }, {home.y}, "ko");          // Plot Home Location
-        plt::plot({vis_x}, {vis_y}, "bo-");              // Plot Visibility Polygon Vertices
+
+
+        // // uncomment if using matplotlib
+        // plt::fill(vis_x, vis_y, {});                    // Plot Visibility Polygon 
+        // plt::plot({home.x, }, {home.y}, "ko");          // Plot Home Location
+        // plt::plot({vis_x}, {vis_y}, "bo-");              // Plot Visibility Polygon Vertices
 
         if (inside(order, pos)){                        // Check if current location is inside the visibility area.
-            plt::plot({pos.x}, {pos.y}, "go");
+            // plt::plot({pos.x}, {pos.y}, "go"); // uncomment if using matplotlib
         }else{
             cout << "Current Position is outside" << endl;
-            plt::plot({pos.x}, {pos.y}, "ro");
+            // plt::plot({pos.x}, {pos.y}, "ro"); // uncomment if using matplotlib
         }      
 
     }else{
@@ -298,7 +299,7 @@ int main(int argc, char** argv) {
          << time_taken << setprecision(6);
     cout << " sec" << endl;
 
-    plt::show(); //comment out if no MPL
+    // plt::show(); // uncomment if using matplotlib
     return 0;
 }
 
