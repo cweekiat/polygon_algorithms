@@ -1,5 +1,5 @@
 #define _USE_MATH_DEFINES
-#include "matplotlibcpp.h"
+// #include "matplotlibcpp.h" //uncomment if using matplotlib
 #include <cmath>
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,8 +9,7 @@
 #include <sys/time.h>
 #include "geom.h"
 using namespace std;
-using namespace std;
-namespace plt = matplotlibcpp;
+// namespace plt = matplotlibcpp; // uncomment if using matplotlib
 
 // The array of segments that form the polygon.
 vector<segment2D>  polygonSegments;
@@ -90,7 +89,7 @@ int main() {
 0.569970845481050,
 0.879008746355685};
                             
-    plt::fill(vertex_x, vertex_y,{});
+    // plt::fill(vertex_x, vertex_y,{}); //uncomment if using matplotlib
     vector<point2D> polygonVertices;
     for (int i = 0; i < vertex_x.size(); i++){
         point2D vertex = {vertex_x[i], vertex_y[i]};
@@ -116,10 +115,12 @@ int main() {
                 }
             }
             if (count == 0){
-                plt::plot({pos_x[j], home_x[j]}, {pos_y[j], home_y[j]}, "g");
+                // plt::plot({pos_x[j], home_x[j]}, {pos_y[j], home_y[j]}, "g"); // uncomment if using matplotlib
+                cout << "Line does not intersect." << endl;
             }
             else{
-                plt::plot({pos_x[j], home_x[j]}, {pos_y[j], home_y[j]}, "r");
+                // plt::plot({pos_x[j], home_x[j]}, {pos_y[j], home_y[j]}, "r"); // uncomment if using matplotlib
+                cout << "Line intersects polygon" << endl;
             }    
         }
     }
@@ -134,6 +135,6 @@ int main() {
     cout << "Time taken by program is : " << fixed
          << time_taken << setprecision(6);
     cout << " sec" << endl;
-        plt::show();
+        // plt::show(); // uncomment if using matplotlib
     return 0;
 }
