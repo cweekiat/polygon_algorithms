@@ -1,5 +1,4 @@
 # polygon_algorithms
-By Chan Wee Kiat
 
 This repository contains polygon algorithms of the following:
 
